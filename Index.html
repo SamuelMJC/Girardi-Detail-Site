@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Girardi Detail — Estética Automotiva</title>
+<meta name="description" content="Girardi Detail — estética automotiva em São Caetano do Sul, SC. Agende pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0d10;
+    --surface: #13161b;
+    --surface-hover: #1c2027;
+    --text-main: #f1f5f9;
+    --text-muted: #8e9aab;
+    
+    /* Neon Accent - Laranja High-Performance / Cobre JDM */
+    --accent: #ff6b00;
+    --accent-glow: rgba(255, 107, 0, 0.35);
+    --accent-dim: rgba(255, 107, 0, 0.12);
+    
+    --border: rgba(255, 255, 255, 0.08);
+    --border-active: rgba(255, 107, 0, 0.4);
+    --whats: #25d366;
+    
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+    
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 25px rgba(255, 107, 0, 0.2);
+  }
+
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    min-height: 100vh;
+    background: 
+      radial-gradient(circle at 50% 0%, rgba(255, 107, 0, 0.08) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 40px),
+      var(--bg);
+    color: var(--text-main);
+    font-family: 'Manrope', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 48px 18px 60px;
+  }
+
+  .card{ width: 100%; max-width: 440px; }
+  @media (min-width: 700px){ .card{ max-width: 760px; } }
+
+  /* Header */
+  header{ text-align: center; margin-bottom: 36px; }
+
+  .plate{
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  .plate::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-glow), transparent 70%);
+    opacity: 0.4;
+  }
+
+  #logo-slot{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--border-active);
+    border-radius: var(--radius-md);
+    background: rgba(11, 13, 16, 0.6);
+  }
+  #logo-slot img{ width: 100%; height: 100%; object-fit: contain; border-radius: 14px;}
+  #logo-slot .placeholder{ display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  #logo-slot .placeholder svg{ width: 28px; height: 28px; stroke: var(--accent); }
+  #logo-slot .placeholder span{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+    font-weight: 700;
+  }
+
+  h1{
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 46px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    line-height: 1;
+    color: var(--text-main);
+    text-shadow: 0 0 20px rgba(255, 107, 0, 0.2);
+  }
+
+  .tagline{
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .tagline span{ color: var(--accent); font-weight: 700; }
+
+  /* CTA WhatsApp */
+  .cta{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 18px 20px;
+    margin: 32px 0 20px;
+    background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(255, 107, 0, 0.05));
+    border: 1px solid var(--border-active);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-main);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cta:hover{
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+    background: linear-gradient(135deg, rgba(255, 107, 0, 0.25), rgba(255, 107, 0, 0.1));
+    border-color: var(--accent);
+  }
+  
+  .cta .ico{
+    flex: 0 0 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+  .cta .ico svg{ width: 24px; height: 24px; fill: #000; }
+  
+  .cta .txt{ display: flex; flex-direction: column; gap: 2px; }
+  .cta .txt strong{
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    color: var(--text-main);
+  }
+  .cta .txt small{ font-size: 12px; color: var(--text-muted); }
+  .cta .arrow{ margin-left: auto; color: var(--accent); font-size: 20px; transition: transform 0.2s; }
+  .cta:hover .arrow{ transform: translateX(5px); }
+
+  /* Links */
+  nav.links{ display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+
+  .link-card{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    text-decoration: none;
+    transition: all .25s ease;
+  }
+  .link-card:hover{
+    transform: translateY(-2px);
+    background: var(--surface-hover);
+    border-color: var(--border-active);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .link-card .glyph{
+    flex: 0 0 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--accent-dim);
+    border: 1px solid rgba(255, 107, 0, 0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+  }
+  .link-card .glyph svg{ width: 20px; height: 20px; }
+
+  .link-card .info{ display: flex; flex-direction: column; gap: 2px; }
+  .link-card .label{
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-main);
+  }
+  .link-card .sub{ font-size: 12.5px; color: var(--text-muted); }
+
+  /* =========================================================
+     CARROSSEL DE SERVIÇOS — SETAS REPOSICIONADAS NO TOPO
+     ========================================================= */
+  .carousel{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* Cabeçalho do Carrossel com Título + Setas Lado a Lado */
+  .carousel-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
+  }
+
+  .carousel-title{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .carousel-title::before{
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  /* Container para agrupar as setas uma ao lado da outra */
+  .carousel-controls{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .car-arrow{
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-main);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .car-arrow:hover{
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--surface-hover);
+    box-shadow: 0 0 10px var(--accent-dim);
+  }
+
+  .car-viewport{
+    overflow: hidden;
+    width: 100%;
+    border-radius: var(--radius-lg);
+  }
+
+  .car-track{
+    display: flex;
+    transition: transform .45s cubic-bezier(.22,.61,.36,1);
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+  }
+  .car-track.dragging{ transition: none; cursor: grabbing; }
+
+  .car-slide{
+    flex: 0 0 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+  }
+
+  .service-card{
+    width: 100%;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+  .service-card .eyebrow{ 
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 11px; 
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    color: var(--accent); 
+  }
+  .service-card ul{ list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .service-card li{
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    font-size: 14px; line-height: 1.4; color: var(--text-muted);
+    padding-bottom: 12px; border-bottom: 1px dashed var(--border);
+  }
+  .service-card li:last-child{ border-bottom: none; padding-bottom: 0; }
+  .service-card li b{ color: var(--text-main); font-weight: 600; }
+  .service-card li .badge{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .car-dots{ display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .car-dot{ width: 8px; height: 8px; border-radius: 50%; border: none; padding: 0; background: var(--border); cursor: pointer; transition: all 0.2s; }
+  .car-dot.active{ background: var(--accent); width: 24px; border-radius: 4px; }
+
+  @media (min-width: 700px){
+    .carousel-controls, .car-dots{ display: none; }
+    .car-track{ display: grid !important; grid-template-columns: 1fr 1fr; gap: 16px; transform: none !important; cursor: default; }
+    .car-viewport { overflow: visible; }
+  }
+
+  footer{
+    text-align: center; margin-top: 44px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <header>
+    <div class="plate">
+      <div id="logo-slot">
+        <img src="logo.png" alt="Logo Girardi Detail">
+        <div class="placeholder">
+
+        </div>
+      </div>
+    </div>
+
+    <p class="eyebrow">Estética Automotiva</p>
+    <h1 id="brand-name">Girardi Detail</h1>
+  
+  </header>
+
+  <a class="cta" href="https://wa.me/5547997703728?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio!" target="_blank" rel="noopener">
+    <span class="ico">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.39a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.35-.5.05-1 .27-3.3-.7-2.8-1.17-4.6-4.02-4.74-4.2-.14-.19-1.14-1.51-1.14-2.88s.72-2.04.98-2.32c.24-.27.55-.34.73-.34l.52.01c.17 0 .4-.06.62.48.24.58.81 2 .88 2.14.07.14.11.3.02.48-.09.19-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.28-.12.56.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.17-.19.71-.83.9-1.11.19-.28.38-.23.63-.14.26.09 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+    </span>
+    <span class="txt">
+      <strong>Agendar pelo WhatsApp</strong>
+      <small>Atendimento rápido e personalizado</small>
+    </span>
+    <span class="arrow">&#8594;</span>
+  </a>
+
+  <nav class="links" aria-label="Links do perfil">
+
+    <a class="link-card" href="https://www.instagram.com/girardi_detail?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">
+      <span class="glyph">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.014 8.333 0 8.74 0 12s.014 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.986 8.74 24 12 24s3.667-.014 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.058-1.28.072-1.687.072-4.947s-.014-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.014 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.9 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.9-.421-.419-.69-.824-.9-1.38-.165-.42-.36-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.86.06-1.17.255-1.814.42-2.235.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.421-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06zm0 4.045a5.795 5.795 0 1 0 0 11.59 5.795 5.795 0 0 0 0-11.59zm0 9.55a3.756 3.756 0 1 1 0-7.51 3.756 3.756 0 0 1 0 7.51zm7.375-9.804a1.35 1.35 0 1 1-2.7 0 1.35 1.35 0 0 1 2.7 0z"/></svg>
+      </span>
+      <div class="info">
+        <span class="label">Instagram</span>
+        <span class="sub">@girardi_detail</span>
+      </div>
+    </a>
+
+    <a class="link-card" href="https://www.tiktok.com/@girardi_detail?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">
+      <span class="glyph">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.4a3.2 3.2 0 1 1-2.27-3.06V9.06a6.4 6.4 0 1 0 5.47 6.34V8.3a8.16 8.16 0 0 0 4.6 1.42V6.5a4.98 4.98 0 0 1-4.6-4.5z"/></svg>
+      </span>
+      <div class="info">
+        <span class="label">TikTok</span>
+        <span class="sub">@girardi_detail</span>
+      </div>
+    </a>
+
+    <a class="link-card" href="https://maps.app.goo.gl/VKFMCSu3pZrgwBds6" target="_blank" rel="noopener">
+      <span class="glyph">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 10.8a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6z"/></svg>
+      </span>
+      <div class="info">
+        <span class="label">Localização</span>
+        <span class="sub">São Caetano do Sul, SC &mdash; Google Maps</span>
+      </div>
+    </a>
+
+  </nav>
+
+  <!-- Carrossel com botões de navegação no topo (lado a lado) -->
+  <div class="carousel" id="serviceCarousel">
+    
+    <div class="carousel-header">
+      <span class="carousel-title">Catálogo de Serviços</span>
+      <div class="carousel-controls">
+        <button class="car-arrow prev" type="button" aria-label="Serviço anterior">&#8592;</button>
+        <button class="car-arrow next" type="button" aria-label="Próximo serviço">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="car-viewport">
+      <div class="car-track" id="carTrack">
+        <div class="car-slide">
+          <div class="service-card">
+            <p class="eyebrow">Carros</p>
+            <ul>
+              <li><b>Lavagem detalhada</b> <span class="badge">PREMIUM</span></li>
+              <li><b>Polimento técnico</b> <span class="badge">BRILHO</span></li>
+              <li><b>Polimento de vidros</b> <span class="badge">VISIBILIDADE</span></li>
+              <li><b>Vitrificação (Ceramic Coating)</b> <span class="badge">PROTEÇÃO</span></li>
+              <li><b>Higienização interna</b> <span class="badge">SANITIZE</span></li>
+              <li><b>Restauração de faróis</b> <span class="badge">CLARIDADE</span></li>
+              <li><b>Restauração de couro</b> <span class="badge">RENOVAÇÃO</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="car-slide">
+          <div class="service-card">
+            <p class="eyebrow">Motocicletas</p>
+            <ul>
+              <li><b>Lavagem Detalhada</b> <span class="badge">PREMIUM</span></li>
+              <li><b>Polimento técnico</b> <span class="badge">BRILHO</span></li>
+              <li><b>Vitrificação (Ceramic Coating)</b> <span class="badge">PROTEÇÃO</span></li>
+              
+              <li><b>Restauração &amp; Revitalização</b> <span class="badge">RENOVAÇÃO</span></li>
+              <li><b>Acabamento de Alto Padrão</b> <span class="badge">PRO</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-dots" id="carDots">
+      <button class="car-dot active" type="button" data-i="0" aria-label="Ir para slide 1"></button>
+      <button class="car-dot" type="button" data-i="1" aria-label="Ir para slide 2"></button>
+    </div>
+
+  </div>
+
+  <footer>Girardi Detail &middot; São Caetano do Sul &mdash; SC
+     <span class="legal-info">
+      <br><br>Samuel Costa | samuelmaiajc@gmail.com | @samdzj
+    </span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var carousel = document.getElementById('serviceCarousel');
+  var track = document.getElementById('carTrack');
+  var slides = track.children;
+  var dots = document.querySelectorAll('#carDots .car-dot');
+  var prevBtn = carousel.querySelector('.car-arrow.prev');
+  var nextBtn = carousel.querySelector('.car-arrow.next');
+
+  var index = 0;
+  var autoplayTimer = null;
+  var autoplayDelay = 3500;
+  var isDragging = false;
+  var startX = 0;
+  var dragDelta = 0;
+
+  function isDesktop(){ return window.matchMedia('(min-width: 700px)').matches; }
+
+  function updateDots(){ dots.forEach(function(d, i){ d.classList.toggle('active', i === index); }); }
+
+  function render(){
+    if (isDesktop()) return;
+    track.style.transform = 'translateX(' + (-index * 100) + '%)';
+  }
+
+  function goTo(i){
+    var n = slides.length;
+    index = (i + n) % n;
+    updateDots();
+    render();
+  }
+
+  function next(){ goTo(index + 1); }
+  function prev(){ goTo(index - 1); }
+
+  function startAutoplay(){
+    stopAutoplay();
+    autoplayTimer = setInterval(function(){ if (!isDesktop()) next(); }, autoplayDelay);
+  }
+  function stopAutoplay(){ if (autoplayTimer){ clearInterval(autoplayTimer); autoplayTimer = null; } }
+
+  carousel.addEventListener('mouseenter', stopAutoplay);
+  carousel.addEventListener('mouseleave', startAutoplay);
+
+  prevBtn.addEventListener('click', function(){ prev(); stopAutoplay(); startAutoplay(); });
+  nextBtn.addEventListener('click', function(){ next(); stopAutoplay(); startAutoplay(); });
+
+  dots.forEach(function(dot){
+    dot.addEventListener('click', function(){
+      goTo(parseInt(dot.getAttribute('data-i'), 10));
+      stopAutoplay(); startAutoplay();
+    });
+  });
+
+  track.addEventListener('pointerdown', function(e){
+    if (isDesktop()) return;
+    isDragging = true; dragDelta = 0; startX = e.clientX;
+    track.classList.add('dragging');
+    stopAutoplay();
+    try{ track.setPointerCapture(e.pointerId); }catch(err){}
+  });
+
+  track.addEventListener('pointermove', function(e){
+    if (!isDragging) return;
+    dragDelta = e.clientX - startX;
+    var viewportWidth = track.parentElement.offsetWidth || 1;
+    var deltaPct = (dragDelta / viewportWidth) * 100;
+    track.style.transform = 'translateX(' + ((-index * 100) + deltaPct) + '%)';
+  });
+
+  function endDrag(){
+    if (!isDragging) return;
+    isDragging = false;
+    track.classList.remove('dragging');
+    var threshold = 45;
+    if (dragDelta > threshold) prev();
+    else if (dragDelta < -threshold) next();
+    else goTo(index);
+    dragDelta = 0;
+    startAutoplay();
+  }
+
+  track.addEventListener('pointerup', endDrag);
+  track.addEventListener('pointerleave', function(){ if (isDragging) endDrag(); });
+  track.addEventListener('pointercancel', endDrag);
+
+  window.addEventListener('resize', function(){
+    if (isDesktop()){ track.style.transform = 'none'; } else { render(); }
+  });
+
+  goTo(0);
+  startAutoplay();
+})();
+</script>
+
+</body>
+</html>
